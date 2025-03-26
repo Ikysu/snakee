@@ -63,9 +63,9 @@ export const build = () => {
 
 	let frames = [], c = 0, appleStandBy = 0;
 	const getFrame = () => {
-		const frame = [...new Set(snake.body)].map((cell, id) => ([0, id, ...cell]))
+		const frame = [...new Set(snake.body)].map((cell, id) => ([0, ...cell, id]))
 		frame[0][0] = 2
-		if (cellToString(snake.body[0]) !== cellToString(apple)) frame.push([1, 0, ...apple])
+		if (cellToString(snake.body[0]) !== cellToString(apple)) frame.push([1, ...apple, id])
 		frames.push(frame)
 	}
 

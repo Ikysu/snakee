@@ -1,12 +1,10 @@
 import { build } from './game/index.js'
-import { compress } from './svgmake/compress.js'
-import { make } from './svgmake/make.js'
+import { make } from './svgmake2/index.js'
 
 export default {
 	async fetch(request, env, ctx) {
-		const { frames } = build()
-		const keys = compress(frames)
-		const svg = make(keys)
+		const { frames, state } = build()
+		const svg = make(keys, state)
 		return new Response(svg, {
 			headers: {
 				'Access-Control-Allow-Origin': "*",

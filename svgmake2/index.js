@@ -9,7 +9,7 @@ const header = `<svg xmlns="http://www.w3.org/2000/svg" width="${settings.width 
 const getSnakePath = (frame) => {
   const snakeBlocks = frame.filter(([type]) => type === 0);
   let d = "";
-  snakeBlocks.forEach(([_, __, x, y]) => {
+  snakeBlocks.forEach(([_, x, y, id]) => {
     const PosX = x * settings.block.size + (x ? x * settings.block.padding : 0);
     const PosY = y * settings.block.size + (y ? y * settings.block.padding : 0);
     const size = settings.block.size;
@@ -30,7 +30,7 @@ const getAppleAnimation = (frames) => {
   const applePositions = frames.map(frame => {
     const apple = frame.find(([type]) => type === 1);
     if (!apple) return [-settings.block.size, -settings.block.padding];
-    const [_, __, x, y] = apple;
+    const [_, x, y, id] = apple;
     return [
       x * settings.block.size + (x ? x * settings.block.padding : 0),
       y * settings.block.size + (y ? y * settings.block.padding : 0)
