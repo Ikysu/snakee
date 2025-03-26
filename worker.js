@@ -1,4 +1,4 @@
-import { gen } from "./v2.js";
+import { gen } from "./v2/index.js";
 
 export default {
 	async fetch(request, env, ctx) {
