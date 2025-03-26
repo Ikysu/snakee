@@ -1,6 +1,5 @@
 import http from "http";
-import { build } from "./game/index.js";
-import { make } from "./svgmake2/index.js";
+import { gen } from "./v2/index.js";
 
 http.createServer((req, res) => {
   if (req.url.includes("favicon")) {
@@ -13,8 +12,6 @@ http.createServer((req, res) => {
     'Cache-Control': "max-age=0, no-cache, no-store, must-revalidate",
     'Content-Type': "image/svg+xml"
   }))
-  const { frames, state } = build()
-  console.info(state === 0 ? "Win" : (state === 1 ? "Lose" : (state === 2 ? "Bad apple" : "Max frames")))
-  res.write(make(frames, state))
+  res.write(gen())
   res.end()
 }).listen(8000)

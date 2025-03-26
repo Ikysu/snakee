@@ -1,11 +1,8 @@
-import { build } from './game/index.js'
-import { make } from './svgmake2/index.js'
+import { gen } from "./v2.js";
 
 export default {
 	async fetch(request, env, ctx) {
-		const { frames, state } = build()
-		const svg = make(keys, state)
-		return new Response(svg, {
+		return new Response(gen(), {
 			headers: {
 				'Access-Control-Allow-Origin': "*",
 				'Vary': "Origin",

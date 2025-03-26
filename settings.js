@@ -9,7 +9,7 @@ export const settings = {
 		size: 30,
 		padding: 4,
 	},
-	speed: 110,
+	speed: 2,
 	defaultCells: 4,
 	colors: ["#029c14", "#f01c05", "#00db1a"]
 }
