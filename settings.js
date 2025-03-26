@@ -3,8 +3,8 @@ export const settings = {
 	height: 6,
 	lose: 0,
 	size: 0,
-	maxFrames: 300, // 3000
-	badApple: 15,
+	maxFrames: 5000, // 3000
+	badApple: 3,
 	block: {
 		size: 30,
 		padding: 4,
